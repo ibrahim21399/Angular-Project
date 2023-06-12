@@ -98,7 +98,7 @@ export class MapPickerComponentComponent implements OnInit {
       if(teacher.Latitude != undefined){
       L.marker([teacher.Latitude, teacher.Longitude])
         .addTo(this.map)
-        .bindPopup(`<strong>${teacher.name}</strong><br>Rating: ${teacher.rating}`);
+        .bindPopup(`<strong>${teacher.name}</strong><br>Rating: ${teacher.averageRating}`);
       }
     });
 

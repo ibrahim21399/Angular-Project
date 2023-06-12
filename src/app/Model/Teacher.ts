@@ -11,7 +11,7 @@ export interface Teacher {
     Latitude:number;
     Longitude:number;
     field:Field;
-    rating: number;
+    averageRating: number;
     pictureUrl: string
     registerationDate: Date;
     Active:boolean;
