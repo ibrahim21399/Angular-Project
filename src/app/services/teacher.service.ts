@@ -16,9 +16,8 @@ export class TeacherService {
   private _Teachers=`${Base}teachers/`;
   private _HighstRate=`${Base}allTeachers/highRate/`;
   private _apiGetAllNotAcceptedTeachers=`${Base}allTeachers/highRate`;
-  private _activeteachers=`${Base}activeteachers/`;
-  private _enrollments = `${Base}enroll/`;
-  private _rate = `${Base}rate/`;
+  private _activeteachers=`${Base}activateteacher/`;
+  private _rate = `${Base}teacherFeedbackandRate/`;
 
 
 
@@ -48,10 +47,7 @@ export class TeacherService {
     return this._httpClient.get<Teacher>(`${this._Teachers}${userId}`)
   }
 
-  Enroll(teacherId: string, studentId: string): Observable<ServiceResponse<any>> {
-    const enrollment = { TeacherId: teacherId, StudentId: studentId };
-    return this._httpClient.post<ServiceResponse<any>>(`${this._enrollments}`, enrollment);
-  }
+
 
   rate(teacherId: string,rateVal:Number): Observable<ServiceResponse<any>> {
     return this._httpClient.get<ServiceResponse<any>>(`${this._rate}${teacherId}/${rateVal}`);
