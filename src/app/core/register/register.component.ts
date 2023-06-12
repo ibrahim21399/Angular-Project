@@ -54,6 +54,10 @@ submit(){
     })
   }
    else {
+    this.form.patchValue({
+      Latitude: this.Latitude,
+      Longitude: this.Longitude
+    });
     console.log(this.form.getRawValue())
     
     this.http.post(this.url+"teachers",this.form.getRawValue())
@@ -79,6 +83,7 @@ if (this.selectedRole!="student")
 }
 }
   ngOnInit(): void {
+    this.getLocation();
   }
 
 
