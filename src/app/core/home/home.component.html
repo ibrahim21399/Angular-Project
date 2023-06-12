@@ -2,6 +2,8 @@
     <h1>welcome {{this.auth.username}}</h1>
     <h3>Your Role : {{this.auth.role}} </h3>
 
+
+
     <div *ngIf="this.auth.role == 'speaker'" class="info">
     <h3>Your Info is</h3>
     <span>Id:{{speaker._id}}</span> <br>
@@ -14,3 +16,4 @@
 
 
 
+<app-map-picker-component></app-map-picker-component>
