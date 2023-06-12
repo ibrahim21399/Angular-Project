@@ -1,0 +1,43 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="card p-4" *ngIf="teacher">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="https://brightspotcdn.byu.edu/dims4/default/c7ffd9d/2147483647/strip/true/crop/1920x1920+0+0/resize/1200x1200!/quality/90/?url=https%3A%2F%2Fbrigham-young-brightspot.s3.amazonaws.com%2Fd0%2Feb%2F28e53e8148e88de263ca79d1782f%2Fplaceholder.png" class="card-img" alt="Teacher Image">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title mb-4">{{ teacher.name }}</h5>
+          <p class="card-text mb-2">Email: {{ teacher.email }}</p>
+          <p class="card-text mb-2">Phone: {{ teacher.phone }}</p>
+          <p class="card-text mb-2">Price per Hour: {{ teacher.pricePerHour }} /hour</p>
+          <p class="card-text mb-2">Field: {{ teacher.FieldId ? teacher.FieldId.name : "-" }}</p>
+          <p class="card-text mb-2">              <app-rating [rate]="teacher.rating"></app-rating>
+          </p>
+          <button *ngIf="!IsEnrollerd&& Role=='student'" class="btn btn-primary mt-4" (click)="Enroll()">Enroll</button>
+          <button class="btn btn-primary mt-4" [disabled]="!IsEnrollerd" (click)="SendMessage()">Send Message</button>
+          <label *ngIf="!IsEnrollerd " class="text-danger d-block">Note : Just Enrolled Student Can Send Message</label>
+          <!-- <div class="rating">
+            <span *ngFor="let star of stars" class="fa" [ngClass]="{'fa-star': star === 1, 'fa-star-half-alt': star === 0.5, 'fa-star-o': star === 0}" (click)="setRating(star)"></span>
+          </div> -->
+
+
+          <ng-container *ngFor="let rateVal of [1, 2, 3, 4, 5]">
+            <input (click)="rateProduct(rateVal)" [id]="'star'+rateVal" [value]="rateVal-0.5" name="rating" type="radio" />
+            <label class="full" [for]="'star'+rateVal"></label>
+          </ng-container>
+
+          <div class="crop"
+               [style.width.px]="starWidth">
+            <div style="width: 75px">
+              <span class="fa fa-star" style="color: yellow;"></span>
+              <span class="fa fa-star"style="color: yellow;"></span>
+              <span class="fa fa-star"style="color: yellow;"></span>
+              <span class="fa fa-star"style="color: yellow;"></span>
+              <span class="fa fa-star"style="color: yellow;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
