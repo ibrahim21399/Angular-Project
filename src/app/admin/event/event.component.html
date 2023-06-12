@@ -10,13 +10,13 @@
 <form [formGroup]="form" (submit)="submit()">
     <br>
     <span class="p-float-label">
-        <input formControlName ="title"  id="float-input" type="text" pInputText> 
+        <input formControlName ="title"  id="float-input" type="text" pInputText>
         <label for="float-input">Title</label>
     </span>
     <br>
- 
+
     <div class="field col-12 md:col-4">
-        <p-calendar  id="float-cal" formControlName ="date" inputId="basic" placeholder="Date" ></p-calendar> 
+        <p-calendar  id="float-cal" formControlName ="date" inputId="basic" placeholder="Date" ></p-calendar>
     </div>
     <br>
     <label >Main Speaker:</label>
@@ -35,7 +35,7 @@
 <div class="events">
     <p-card *ngFor="let eve of events" >
         <ng-template pTemplate="header">
-         <h2>{{eve.title}}</h2> 
+         <h2>{{eve.title}}</h2>
         </ng-template>
        Date:{{eve.eventDate}}
        <br>
@@ -46,8 +46,8 @@
        <p-chip *ngFor="let subspk of eve.otherSpeakers" styleClass="sub-speakers" label="{{subspk.username}}"></p-chip>
        <br>
        <label for="mainspeaker">Students: </label>
-       <p-chip *ngFor="let st of eve.students" styleClass="students" label="{{st.username}}"></p-chip>
-     
+       <!-- <p-chip *ngFor="let st of eve.students" styleClass="students" label="{{st.username}}"></p-chip> -->
+
         <ng-template pTemplate="footer">
             <p-confirmPopup></p-confirmPopup>
             <button pButton (click) ="deleteitiEvent($event,eve._id)" pRipple type="button" icon="pi pi-times" class="btn-rounded p-button-danger p-button-text"></button>
@@ -59,26 +59,26 @@
 
 <p-dialog [(visible)]="eventDialog" [style]="{width: '450px'}" header="Event Details" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
-    
+
         <span class="p-float-label">
-            <input    id="float-input" type="text" pInputText> 
+            <input    id="float-input" type="text" pInputText>
             <label for="float-input">Title</label>
         </span>
-     
+
         <div class="field col-12 md:col-4">
-            <p-calendar  id="float-cal"  inputId="basic" placeholder="Date" ></p-calendar> 
+            <p-calendar  id="float-cal"  inputId="basic" placeholder="Date" ></p-calendar>
         </div>
-     
+
         <label >Main Speaker:</label>
         <p-dropdown [options]="Speakers" [(ngModel)]="event.mainSpeaker" optionLabel="username"></p-dropdown>
         <br>
         <p-multiSelect  [options]="Speakers" [(ngModel)]="event.otherSpeakers" defaultLabel="Select otherSpeakers" optionLabel="username" display="chip"></p-multiSelect>
         <br>
         <p-multiSelect  [options]="students" [(ngModel)]="event.students" defaultLabel="Students" optionLabel="username" display="chip"></p-multiSelect>
- 
-    
 
-    </ng-template> 
+
+
+    </ng-template>
 
     <ng-template pTemplate="footer">
         <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>

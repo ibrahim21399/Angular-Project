@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Teacher } from 'src/app/Model/Teacher';
 import { AuthService } from 'src/app/auth.service';
+import { TeacherService } from 'src/app/services/teacher.service';
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-map-picker-component',
