@@ -14,7 +14,7 @@ export class AuthService {
   role?: string;
   isloggedin = false;
   username = "";
-  decodedToken:any; 
+  decodedToken:any;
 
   private IsLogin = new Subject<any>();
   private name = new Subject<any>();
