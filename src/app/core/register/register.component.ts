@@ -2,7 +2,9 @@ import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { HttpClient} from "@angular/common/http";
 import { Router } from '@angular/router';
-
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,7 +19,7 @@ url ="http://localhost:5000/api/";
 @ViewChild("address") addressDiv!:ElementRef;
 
 
-  constructor( 
+  constructor(
     private fb:UntypedFormBuilder,
     private http:HttpClient,
     private router:Router
@@ -40,7 +42,7 @@ this.form = this.fb.group( {
 
 
 submit(){
-  
+
   if (this.selectedRole == "student") {
     this.http.post(this.url+"students",this.form.getRawValue())
     .subscribe(res=>{
@@ -49,33 +51,33 @@ submit(){
   }
    else {
     console.log(this.form.getRawValue())
-    
+
     this.http.post(this.url+"speaker/register",this.form.getRawValue())
     .subscribe(res=>{
-      
-      
+
+
       this.router.navigateByUrl("/login")
-      
-      
+
+
     })
   }
 }
 updateGUI(){
-  
-if (this.selectedRole!="student") 
-{ 
 
-  this.addressDiv.nativeElement.style = "display:none" 
-  
+if (this.selectedRole!="student")
+{
+
+  this.addressDiv.nativeElement.style = "display:none"
+
 
 } else {
-  this.addressDiv.nativeElement.style = "display:block" 
+  this.addressDiv.nativeElement.style = "display:block"
 }
 }
 
 
-    
-  
+
+
   ngOnInit(): void {
   }
 
