@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ServiceResponse } from 'src/app/Model/serviceResponse';
 import { Teacher } from '../Model/Teacher';
 
-const Base= "http://localhost:8080/"
+const Base= "http://localhost:5000/api/"
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ const Base= "http://localhost:8080/"
 export class TeacherService {
 
   private _Teachers=`${Base}teachers/`;
-  private _HighstRate=`${Base}highrateteachers/`;
-  private _apiGetAllNotAcceptedTeachers=`${Base}notactiveteachers`;
+  private _HighstRate=`${Base}allTeachers/highRate/`;
+  private _apiGetAllNotAcceptedTeachers=`${Base}allTeachers/highRate`;
   private _activeteachers=`${Base}activeteachers/`;
   private _enrollments = `${Base}enroll/`;
   private _rate = `${Base}rate/`;

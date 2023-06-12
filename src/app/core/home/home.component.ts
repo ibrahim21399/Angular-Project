@@ -20,13 +20,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.auth.role=="speaker") {
-      // this.auth.speakrOwnProfInof().subscribe((sp)=>{
-      //   this.speaker = sp;
-      //   console.log(this.speaker)
-      
-      // })
       console.log(this.speaker,this.auth.role);
-      
     }
   }
 

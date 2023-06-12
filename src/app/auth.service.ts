@@ -11,46 +11,67 @@ import jwtDecode from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthService {
-  role?: string;
-  isloggedin = false;
-  username = "";
-  decodedToken:any;
+  url = "http://localhost:5000/api/";
 
+
+  role?: string;
+  userId: string | null = null; // initialize the userId property to null
+  isloggedin = false;
+  email = "";
+  decodedToken:any; 
   private IsLogin = new Subject<any>();
   private name = new Subject<any>();
   private Role = new Subject<any>();
-  url = "http://localhost:5000/api/";
 
-  constructor(private http: HttpClient,private router:Router,private _alert:SweetalertService) {
+
+  constructor(private http: HttpClient,private router:Router,private _sweetalertService:SweetalertService) {
 
    }
 
   Login(email: string, password: string) {
-    this.http.post<any>(this.url + "login", { email: email, password: password }).subscribe(res => {
-      localStorage.setItem("token", res.token)
+    this.http.post<any>(this.url + "login", { email: email, password: password }).subscribe( res => {
+      console.log(res)
+      localStorage.setItem("jwt_token", res.token)
       this.decodedToken = jwtDecode<any>(res.token);
       localStorage.setItem("name", this.decodedToken.name);
       localStorage.setItem("Role", this.decodedToken.role)
-      localStorage.setItem("userId", this.decodedToken._id);
-      this.username = email
+      localStorage.setItem("userId", this.decodedToken._id); // store
+      this.email = email
       this.isloggedin = true;
       this.IsLogin.next(true);
       this.name.next(this.decodedToken.name);
       this.Role.next(this.decodedToken.role);
-      this._alert.RunAlert(res.message,true);
+      this.userId = this.decodedToken._id;
 
-      this.router.navigateByUrl("/")
-      this.role= res.role;
-    },error=>{
-      this._alert.RunAlert(error.error.message,false);
+      console.log(this.decodedToken.role)
+      if (this.decodedToken.role=="teacher")
+      this.router.navigateByUrl(`/teacherProfile/${this.decodedToken._id}`)
+      else if(this.decodedToken.role=="admin")
+      this.router.navigateByUrl(`/PendingTeachers`)
+      else
+        this.router.navigateByUrl(`/`)
+    },error => {
+    this._sweetalertService.RunAlert(error.error.message,false);
     })
   }
-
-
 logout(){
   this.isloggedin = false;
-  localStorage.removeItem("token")
-  this.username =""
+  localStorage.clear();
+  this.email =""
+}
+GetName():any{
+return this.decodedToken.name;
+}
+GetRole():any{
+  return this.decodedToken.role;
+}
+GetId(): any {
+  // Check if the decodedToken exists and contains the _id field
+  if (this.decodedToken && this.decodedToken._id) {
+    return this.decodedToken._id;
+  } else {
+    return null;
+  }
 }
 
 sendIsLogin(login:boolean = false){

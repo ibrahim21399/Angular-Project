@@ -1,37 +1,33 @@
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
     <div class="row">
-      <!-- Map Section -->
-      <div class="col-12 mb-5">
-        <div id="map" style="height: 400px;"></div>
-      </div>
 
-      <!-- Highest Rated Teachers Section -->
+
       <div class="col-12">
-        <h2 class="text-center mb-5 text-white">Top Rated Teachers</h2>
+        <h2 class="text-center mb-5">Top Rated Teachers</h2>
       </div>
-      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-5" *ngFor="let teacher of highestRatedTeachers; let i = index">
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-5 rounded_corner" *ngFor="let teacher of highestRatedTeachers; let i = index">
         <div class="card h-100">
-
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">{{ teacher.name }}</h5>
-            <p class="card-text">{{ teacher.field?teacher.field.name:"-" }}</p>
+            <p class="card-text">{{ teacher.field}}</p>
             <div class="rating">
-              <!-- <app-rating [rate]="teacher.rating"></app-rating> -->
             </div>
             <div class="d-flex justify-content-between align-items-center">
               <h4 class="card-price mt-3">{{ teacher.pricePerHour }} <span class="text-muted fw-normal">$/hour</span></h4>
-              <a class="btn btn-primary" *ngIf="(!this.login.isloggedin);else NotClickable" aria-disabled="true">View Profile</a>
+              <a class="btn btn-success" *ngIf="(!this.login.isloggedin);else NotClickable" aria-disabled="true">Contact</a>
               <ng-template #NotClickable>
-                <a class="btn btn-primary " href="teacherDetail/{{teacher._id}}">View Profile</a>
+                <a class="btn btn-success" href="teacherDetail/{{teacher._id}}">Contact</a>
               </ng-template>
             </div>
           </div>
         </div>
-        <!-- Add a new row after every 4th card -->
         <div *ngIf="(i + 1) % 4 === 0" class="w-100"></div>
       </div>
+          <div class="col-12 mb-5">
+            <div id="map" style="height: 400px;"></div>
+          </div>
+    
     </div>
   </div>
 </section>

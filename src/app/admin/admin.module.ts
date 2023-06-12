@@ -7,8 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import { SpeakerComponent } from './speaker/speaker.component';
-import { EventComponent } from './event/event.component';
 import {InputTextModule} from 'primeng/inputtext';
 import {CalendarModule} from 'primeng/calendar';
 import {MultiSelectModule} from 'primeng/multiselect';
@@ -22,8 +20,6 @@ import { ChipModule } from 'primeng/chip';
 @NgModule({
   declarations: [
     StudentComponent,
-    SpeakerComponent,
-    EventComponent
   ],
   imports: [
     CommonModule,
@@ -43,8 +39,7 @@ import { ChipModule } from 'primeng/chip';
   ],
   exports:[
     StudentComponent,
-    SpeakerComponent,
-    EventComponent
+
   ]
   
 })

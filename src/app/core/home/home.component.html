@@ -1,9 +1,5 @@
 <div class="welcome">
-    <h1>welcome {{this.auth.username}}</h1>
-    <h3>Your Role : {{this.auth.role}} </h3>
-
-
-
+    <h1>welcome</h1>
     <div *ngIf="this.auth.role == 'speaker'" class="info">
     <h3>Your Info is</h3>
     <span>Id:{{speaker._id}}</span> <br>

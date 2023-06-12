@@ -6,29 +6,36 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/admin">Dashboard</a>
-        </li>
-      </ul>
-    </div>
-    
-    <ul class="nav navbar-nav navbar-right">
-      <li class="nav-item">
-        <a class="nav-link"  routerLink="/register"><span class="glyphicon glyphicon-user"></span>Register</a>
-      </li>
-      <li class="nav-item" *ngIf="!this.login.isloggedin;else logoutbutton ">
-        <a class="nav-link"  routerLink="/login"><span class="glyphicon glyphicon-user"></span>Login</a>
-      </li>
-      <ng-template #logoutbutton>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login" (click)="logout()"><span><i class="bi bi-box-arrow-in-right"></i></span> logout</a>
-      </li>
-    </ng-template>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" routerLink="/">Home</a></li>
+          <li class="nav-item"*ngIf="this.login.isloggedin && this.role=='admin'"><a class="nav-link" routerLink="/PendingTeachers">Teachers</a></li>
+          <li class="nav-item"*ngIf="this.login.isloggedin && this.role=='admin'"><a class="nav-link" routerLink="/students">Students</a></li>
+          <li class="nav-item"*ngIf="this.login.isloggedin && this.role=='student'"><a class="nav-link" routerLink="/TeachersList">Find Teacher</a></li>
+
+        </ul>
+      <form class="d-flex">
+        <ul class="nav navbar-nav navbar-right">
+         <li class="nav-item" *ngIf="!this.login.isloggedin;">
+            <a class="nav-link"  routerLink="/register"><span class="glyphicon glyphicon-user"></span>register</a>
+          </li>
+          <li class="nav-item" *ngIf="!this.login.isloggedin;else logoutbutton ">
+            <a class="nav-link"  routerLink="/login"><span class="glyphicon glyphicon-user"></span>Login</a>
+          </li>
+          <ng-template #logoutbutton>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/teacherProfile/{{Id}}">
+                <span><i class="bi bi-box-arrow-in-right"></i></span>Welcome, {{name}}
+              </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/login" (click)="logout()"><span><i class="bi bi-box-arrow-in-right"></i></span> logout</a>
+               </li>
+
+        </ng-template>
+        </ul>
+      </form>
+  </div>
+
   </div>
 </nav>
