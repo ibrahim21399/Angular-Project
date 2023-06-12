@@ -22,6 +22,8 @@ export class AuthService {
       localStorage.setItem("token", res.token)
       this.username = email
       this.isloggedin = true;
+      this._alert.RunAlert(res.message,true);
+
       this.router.navigateByUrl("/")
       this.role= res.role;
     },error=>{
