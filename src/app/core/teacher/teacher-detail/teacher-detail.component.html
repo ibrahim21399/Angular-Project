@@ -1,0 +1,37 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="card p-4" *ngIf="teacher">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="https://brightspotcdn.byu.edu/dims4/default/c7ffd9d/2147483647/strip/true/crop/1920x1920+0+0/resize/1200x1200!/quality/90/?url=https%3A%2F%2Fbrigham-young-brightspot.s3.amazonaws.com%2Fd0%2Feb%2F28e53e8148e88de263ca79d1782f%2Fplaceholder.png" class="card-img" alt="Teacher Image">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title mb-4">{{ teacher.name }}</h4>
+          <p class="card-text mb-2">Email: {{ teacher.email }}</p>
+          <p class="card-text mb-2">Phone: {{ teacher.phone }}</p>
+          <p class="card-text mb-2">Price per Hour: {{ teacher.pricePerHour }} /hour</p>
+          <p class="card-text mb-2">Field: {{ teacher.FieldId ? teacher.FieldId.name : "-" }}</p>
+          <p class="card-text mb-2">
+            <p-rating [(ngModel)]="teacher.rating" [disabled]="true" [cancel]="false"></p-rating>
+
+          </p>
+          <button *ngIf="!IsEnrollerd&& Role=='student'" class="btn btn-primary mt-4" (click)="Enroll()">Enroll</button>
+          <button class="btn btn-primary mt-4" [disabled]="!IsEnrollerd" (click)="SendMessage()">Send Message</button>
+          <label *ngIf="!IsEnrollerd " class="text-danger d-block">Note : Just Enrolled Student Can Send Message</label>
+
+        <div *ngIf="!IsRated && IsEnrollerd">
+<h5>Rate Your Teacher :</h5>
+<!-- <p-rating  [cancel]="false" [readonly]="false" "></p-rating> -->
+
+
+<p-rating [(ngModel)]="selectedRating" (onRate)="rate($event)"[cancel]="false"></p-rating>
+        </div>
+        <div *ngIf="IsRated && IsEnrollerd">
+          <p style="color: Red;">Thank You!</p>
+
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

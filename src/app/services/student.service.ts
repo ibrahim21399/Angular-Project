@@ -15,7 +15,6 @@ export class StudentService {
   private _Block=`${APIUrl}BlockStudent/`;
   private _Active=`${APIUrl}ActiveStudent/`;
   private _StudentById=`${APIUrl}students/`;
-  private _enrollments = `${APIUrl}EnrollStudent/`;
 
   constructor(private http:HttpClient) { }
   StudentRegiser(student:Student):Observable<ServiceResponse<boolean>>{
@@ -37,10 +36,5 @@ export class StudentService {
   }
   getStudentById(userId:string):Observable<Student>{
     return this.http.get<Student>(`${this._StudentById}${userId}`);
-  }
-
-  Enroll(teacherId: string, studentId: string): Observable<ServiceResponse<any>> {
-    const enrollment = { TeacherId: teacherId, StudentId: studentId };
-    return this.http.post<ServiceResponse<any>>(`${this._enrollments}`, enrollment);
   }
 }
