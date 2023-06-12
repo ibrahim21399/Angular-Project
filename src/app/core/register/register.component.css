@@ -1,0 +1,14 @@
+@import "../../../assets/css/login.css";
+
+.select {
+   background: #000;
+}
+.ui-buttonset:not(.ui-splitbutton) .ui-button {
+   border-top-left-radius: .3em;
+   border-top-right-radius: .3em;
+   border-bottom-left-radius: .3em;
+   border-bottom-right-radius: .3em;
+   border-left: solid #cccccc .07em;
+   border-right: solid #cccccc .07em;
+   background: white;
+ }

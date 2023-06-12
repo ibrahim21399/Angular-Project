@@ -1,0 +1,26 @@
+.p-button-rounded{
+margin: 5px;
+background: #000;
+}
+.events{
+    display: flex;
+   
+}
+:host ::ng-deep .p-chip.main-speaker {
+    background: brown;
+    color: var(--primary-color-text);
+}
+
+:host ::ng-deep .p-chip.sub-speakers {
+    background:rgb(166, 166, 166);
+    color: var(--primary-color-text);
+}
+
+:host ::ng-deep .p-chip.students {
+    background:rgb(43, 147, 83);
+    color: var(--primary-color-text);
+}
+
+.container{
+
+}

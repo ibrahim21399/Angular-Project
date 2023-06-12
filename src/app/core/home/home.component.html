@@ -1,0 +1,64 @@
+<div class="welcome">    
+    <h1>welcome {{this.auth.username}}</h1>
+    <h3>Your Role : {{this.auth.role}} </h3>
+
+    <div *ngIf="this.auth.role == 'speaker'" class="info">
+    <h3>Your Info is</h3>
+    <span>Id:{{speaker._id}}</span> <br>
+    <span>email:{{speaker.email}}</span><br>
+    <span>address:{{speaker.address.city}},{{speaker.address.street}} {{speaker.address.building}}</span> <br>
+    <button pButton pRipple label="Edit Profile" icon="pi pi-user-edit" class="p-button-text" (click)="editSpeaker()"></button>
+ 
+    </div>
+</div>
+
+
+<p-dialog [(visible)]="speakerDialog" [style]="{width: '450px'}" header="Editing Your Profile" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+    
+        <!-- <div class="field">
+            <label for="name">ID </label>
+            <input type="text" pInputText id="id" [(ngModel)]="speaker._id" required autofocus />
+            <small class="p-error" *ngIf="speakerSubmitted && !speaker?._id">Id is required.</small>
+        </div> -->
+        <div class="field">
+            <label for="name">Email </label>
+            <input type="text" pInputText id="Email" [(ngModel)]="speaker.email" required autofocus />
+            <small class="p-error" *ngIf="speakerSubmitted && !speaker?.email">Email is required.</small>
+        </div>
+        <div class="field">
+            <label for="name">Username </label>
+            <input type="text" pInputText id="Email" [(ngModel)]="speaker.username" required autofocus />
+            <small class="p-error" *ngIf="speakerSubmitted && !speaker?.email">Username is required.</small>
+        </div>
+        <div class="field">
+            <label for="name">password </label>
+            <input type="text" pInputText id="Email" [(ngModel)]="speaker.password" required autofocus />
+            <small class="p-error" *ngIf="speakerSubmitted && !speaker?.email">password is required.</small>
+        </div>
+        <div class="field">
+            <label for="name">City </label>
+            <input type="text" pInputText id="Email" [(ngModel)]="speaker.address.city" required autofocus />
+            <small class="p-error" *ngIf="speakerSubmitted && !speaker?.email">Email is required.</small>
+        </div>
+        <div class="field">
+            <label for="name">Street </label>
+            <input type="text" pInputText id="Email" [(ngModel)]="speaker.address.street" required autofocus />
+            <small class="p-error" *ngIf="speakerSubmitted && !speaker?.email">Email is required.</small>
+        </div>
+        <div class="field">
+            <label for="name">Building </label>
+            <input type="text" pInputText id="Email" [(ngModel)]="speaker.address.building" required autofocus />
+            <small class="p-error" *ngIf="speakerSubmitted && !speaker?.email">Email is required.</small>
+        </div>
+
+    </ng-template> 
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="postEditedSpeaker()"></button>
+    </ng-template>
+
+
+
+</p-dialog>
