@@ -11,10 +11,12 @@ import { HomeComponent } from './home/home.component';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { MapPickerComponentComponent } from './map-picker-component/map-picker-component.component';
+import { FieldComponent } from './field/field.component';
+import { ActiveStudentComponent } from './active-student/active-student.component';
 
 
 
- 
+
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { MapPickerComponentComponent } from './map-picker-component/map-picker-c
     RegisterComponent,
     NavbarComponent,
     HomeComponent,
-    MapPickerComponentComponent
+    MapPickerComponentComponent,
+    FieldComponent,
+    ActiveStudentComponent
   ],
   imports: [
     CommonModule,
@@ -35,15 +39,15 @@ import { MapPickerComponentComponent } from './map-picker-component/map-picker-c
     DialogModule,
     ButtonModule,
 
-   
+
   ],
   exports:[
     RegisterComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   providers:[]
-  
+
 
 })
 export class CoreModule { }
