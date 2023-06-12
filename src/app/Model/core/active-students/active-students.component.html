@@ -1,0 +1,29 @@
+<h2 class="text-center text-white">Students List</h2>
+<br>
+
+<table class="table bg-white">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Registration Date</th>
+      <th>Active</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{ student.name }}</td>
+      <td>{{ student.email }}</td>
+      <td>{{ student.registerationDate | date }}</td>
+      <td>{{ student.Active ? 'Yes' : 'No' }}</td>
+      <td>
+
+        <button *ngIf="student.Active" class="btn btn-danger" (click)="Block(student._id)">Block</button>
+        <button *ngIf="!student.Active" class="btn btn-primary" (click)="Active(student._id)">Active</button>
+        <button class="btn btn-danger mx-2" (click)="Delete(student._id)">Delete</button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>

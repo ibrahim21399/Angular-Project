@@ -1,6 +1,8 @@
 export interface Student {
-    _id:number;
-    username:string;
+    _id:string;
+    name:string;
     email:string;
-
+    password:string;
+    registerationDate: Date;
+    Active:boolean;
 }
