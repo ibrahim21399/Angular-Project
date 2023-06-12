@@ -3,6 +3,8 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
 import { HttpClient} from "@angular/common/http";
 import { Router } from '@angular/router';
 import { Position } from 'src/app/Model/Position'
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,7 +18,8 @@ selectedRole: string = "student";
 url ="http://localhost:5000/api/";
 @ViewChild("address") addressDiv!:ElementRef;
 
-
+public Latitude:string = "0";
+public Longitude: string = "0";
   constructor(
     private fb:UntypedFormBuilder,
     private http:HttpClient,
@@ -53,7 +56,7 @@ submit(){
    else {
     console.log(this.form.getRawValue())
 
-    this.http.post(this.url+"speaker/register",this.form.getRawValue())
+    this.http.post(this.url+"teachers",this.form.getRawValue())
     .subscribe(res=>{
 
 
@@ -75,10 +78,6 @@ if (this.selectedRole!="student")
   this.addressDiv.nativeElement.style = "display:block"
 }
 }
-
-
-
-
   ngOnInit(): void {
   }
 
