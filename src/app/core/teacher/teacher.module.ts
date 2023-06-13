@@ -13,6 +13,7 @@ import { PendingTeachersComponent } from './pending-teachers/pending-teachers.co
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { DatePipe } from '@angular/common';
 import { TableModule } from 'primeng/table';
+import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 
 
 
@@ -21,6 +22,7 @@ import { TableModule } from 'primeng/table';
     TeacherDetailComponent,
     PendingTeachersComponent,
     TeacherListComponent,
+    TeacherProfileComponent,
   ],
   imports: [
     CommonModule,
