@@ -1,4 +1,3 @@
-import { Field } from "./Field";
 
 export interface Teacher {
     _id:string;
@@ -10,7 +9,7 @@ export interface Teacher {
     experienceYears:number;
     Latitude:number;
     Longitude:number;
-    field:Field;
+    field:string;
     averageRating: number;
     pictureUrl: string
     registerationDate: Date;

@@ -13,6 +13,8 @@ import { ButtonModule } from 'primeng/button';
 import { MapPickerComponentComponent } from './map-picker-component/map-picker-component.component';
 import { FieldComponent } from './field/field.component';
 import { ActiveStudentComponent } from './active-student/active-student.component';
+import { TeacherModule } from './teacher/teacher.module';
+import { RatingModule } from 'primeng/rating';
 
 
 
@@ -27,7 +29,8 @@ import { ActiveStudentComponent } from './active-student/active-student.componen
     HomeComponent,
     MapPickerComponentComponent,
     FieldComponent,
-    ActiveStudentComponent
+    ActiveStudentComponent,
+  
   ],
   imports: [
     CommonModule,
@@ -38,6 +41,9 @@ import { ActiveStudentComponent } from './active-student/active-student.componen
     HttpClientModule,
     DialogModule,
     ButtonModule,
+    TeacherModule,
+    RatingModule,
+
 
 
   ],

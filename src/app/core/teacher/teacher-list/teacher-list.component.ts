@@ -62,10 +62,10 @@ filterTeachers() {
     console.log(this.selectedField);
 
 
-    this.filteredTeachers = this.filteredTeachers.filter(teacher => teacher.field._id === this.selectedField);
+    this.filteredTeachers = this.filteredTeachers.filter(teacher => teacher.field.toLowerCase().includes(this.selectedField.toLowerCase()));
   }
   if(this.Rate){
-    this.filteredTeachers = this.filteredTeachers.filter(teacher => teacher.rating === this.Rate);
+    this.filteredTeachers = this.filteredTeachers.filter(teacher => teacher.averageRating === this.Rate);
 
   }
   if(this.Years){

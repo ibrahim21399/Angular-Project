@@ -23,7 +23,6 @@ import { DatePipe } from '@angular/common';
   ],
   imports: [
     CommonModule,
-    CoreModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
@@ -32,6 +31,11 @@ import { DatePipe } from '@angular/common';
     RatingModule,
     DialogModule,
     ButtonModule,
+  ],
+  exports:[
+    TeacherDetailComponent,
+    PendingTeachersComponent,
+    TeacherListComponent,
   ],
   providers: [DatePipe],
 })

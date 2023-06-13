@@ -19,6 +19,7 @@ export class TeacherDetailComponent implements OnInit {
   Role:any;
   starWidth: number = 0;
   IsRated:boolean=false;
+  studentname:any;
 
 
   @Output() ratingSubmitted = new EventEmitter<number>();
@@ -29,6 +30,7 @@ export class TeacherDetailComponent implements OnInit {
       this.loadTeacherDetails();
       this.TeacherId=this.activateRoute.snapshot.params['id'];
       this.StudentId = localStorage.getItem('userId');
+      this.studentname = localStorage.getItem('name');
       this.Role = localStorage.getItem('Role');
     }
 
@@ -36,6 +38,7 @@ export class TeacherDetailComponent implements OnInit {
     this.loadTeacherDetails();
     this.TeacherId=this.activateRoute.snapshot.params['id'];
     this.StudentId = localStorage.getItem('userId');
+    this.studentname = localStorage.getItem('name');
     this.Role = localStorage.getItem('Role');
 
   }
@@ -49,7 +52,8 @@ export class TeacherDetailComponent implements OnInit {
         console.log(response)
         this.teacher = response;
         this.teacher = this.teacher[0];
-        if (Array.isArray(this.teacher.studentEnrolled) && this.teacher.studentEnrolled.some((student: any) => student._id === this.StudentId)) {
+        console.log(this.teacher.studentEnrolled._id);
+        if (Array.isArray(this.teacher.studentEnrolled) && this.teacher.studentEnrolled.some((student: any) => student.name === this.studentname)) {
           this.IsEnrollerd = true;
         }
 

@@ -34,10 +34,11 @@
 
             <div class="d-flex justify-content-between mb-3">
               <h5 class="mb-0"></h5>
-              <h5 class="text-danger mb-0">$1299 <small>/hour</small></h5>
+              <h5 class="text-danger mb-0">${{teacher.pricePerHour}} <small>/hour</small></h5>
             </div>
             <div class="d-flex justify-content-between align-items-center">
-              <h4 class="card-price mt-3"><p class="text-muted mb-0">Available: <span class="fw-bold">{{teacher.averageRating}}/5</span></p>
+              <h4 class="card-price mt-3">
+                <p-rating [(ngModel)]="teacher.averageRating" [disabled]="true"  [cancel]="false"></p-rating>
               </h4>
               <a class="btn btn-success" *ngIf="(!this.login.isloggedin);else NotClickable" aria-disabled="true">Contact</a>
               <ng-template #NotClickable>

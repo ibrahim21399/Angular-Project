@@ -10,6 +10,10 @@ import { LoginGuard } from './login.guard';
 import { FieldComponent } from './core/field/field.component';
 import { ActiveStudentComponent } from './core/active-student/active-student.component';
 import { PendingTeachersComponent } from './core/teacher/pending-teachers/pending-teachers.component';
+import { TeacherListComponent } from './core/teacher/teacher-list/teacher-list.component';
+import { TeacherDetailComponent } from './core/teacher/teacher-detail/teacher-detail.component';
+
+
 
 const routes: Routes = [
   {path:"login",component: LoginComponent},
@@ -19,10 +23,10 @@ const routes: Routes = [
   {path:"Fields",component: FieldComponent},
   {path:"students",component: ActiveStudentComponent},
   {path:"PendingTeachers",component: PendingTeachersComponent},
-  // {path:"TeachersList",component: TeachersListComponent},
+  {path:"TeachersList",component: TeacherListComponent},
   // {path:"Admins",component: AdminComponent},
 
-  // {path: "teacherDetail/:id", component: TeacherDetailComponent},
+  {path: "teacherDetail/:id", component: TeacherDetailComponent},
   // {path: "teacherProfile/:id", component: TeacherProfileComponent},
   // { path: 'messages/:studentId/:teacherId', component: MessageComponent },
   {path:"error",component:ErrorComponent},
