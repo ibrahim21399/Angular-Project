@@ -12,6 +12,7 @@ import { RatingModule } from 'primeng/rating';
 import { PendingTeachersComponent } from './pending-teachers/pending-teachers.component';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { DatePipe } from '@angular/common';
+import { TableModule } from 'primeng/table';
 
 
 
@@ -31,6 +32,7 @@ import { DatePipe } from '@angular/common';
     RatingModule,
     DialogModule,
     ButtonModule,
+    TableModule,
   ],
   exports:[
     TeacherDetailComponent,

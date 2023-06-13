@@ -15,6 +15,7 @@ import { FieldComponent } from './field/field.component';
 import { ActiveStudentComponent } from './active-student/active-student.component';
 import { TeacherModule } from './teacher/teacher.module';
 import { RatingModule } from 'primeng/rating';
+import { TableModule } from 'primeng/table';
 
 
 
@@ -30,7 +31,6 @@ import { RatingModule } from 'primeng/rating';
     MapPickerComponentComponent,
     FieldComponent,
     ActiveStudentComponent,
-  
   ],
   imports: [
     CommonModule,
@@ -43,6 +43,7 @@ import { RatingModule } from 'primeng/rating';
     ButtonModule,
     TeacherModule,
     RatingModule,
+    TableModule,
 
 
 

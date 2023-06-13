@@ -23,6 +23,9 @@ export class PendingTeachersComponent implements OnInit {
       .subscribe(teachers => {
         this.Teachers = teachers.data;
       });
+
+
+
   }
 
   Accept(id:string):void{

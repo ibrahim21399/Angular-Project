@@ -1,32 +1,36 @@
-<h2 class="text-center text-white">Pending Teachers</h2>
 
-<table class="table bg-white">
-  <thead class="thead-dark">
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Price Per Hour</th>
-      <th>Field</th>
-      <th>Registration Date</th>
-      <th>Status</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let teacher of Teachers">
-      <td>{{ teacher.name }}</td>
-      <td>{{ teacher.email }}</td>
-      <td>{{ teacher.pricePerHour }} $</td>
-      <td>{{ teacher.field?teacher.field:"-" }}</td>
-      <!-- <td>{{ teacher.registerationDate  |date }}</td> -->
-      <td>{{ teacher.Active ? 'Accepted' : 'Pending' }}</td>
-      <td>
 
-        <button *ngIf="!teacher.Active" class="btn btn-primary mr-2" (click)="Accept(teacher._id)">Accept</button>
+<div class="container">
+  <div class="row">
+    <h2 class="text-center text-white">Pending Teachers</h2>
 
-        <button class="btn btn-danger" (click)="Delete(teacher._id)">Delete</button>
+    <p-table [value]="Teachers" [paginator]="true" [rows]="10" [responsive]="true" [rowsPerPageOptions]="[10, 20, 50]">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Price Per Hour</th>
+          <th>Field</th>
+          <th>Registration Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-teacher>
+        <tr>
+          <td>{{ teacher.name }}</td>
+          <td>{{ teacher.email }}</td>
+          <td>{{ teacher.pricePerHour }} $</td>
+          <td>{{ teacher.field ? teacher.field : "-" }}</td>
+          <td>{{ teacher.registerationDate | date }}</td>
+          <td>{{ teacher.Active ? 'Accepted' : 'Pending' }}</td>
+          <td>
+            <button *ngIf="!teacher.Active" pButton type="button" class="p-button-primary mr-2" (click)="Accept(teacher._id)">Accept</button>
+            <button pButton type="button" class="p-button-danger" (click)="Delete(teacher._id)">Delete</button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
 
-      </td>
-    </tr>
-  </tbody>
-</table>
+  </div>
+</div>

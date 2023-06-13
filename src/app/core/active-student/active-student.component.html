@@ -1,8 +1,10 @@
 <h2 class="text-center text-white">Students List</h2>
 <br>
-
-<table class="table bg-white">
-  <thead class="thead-dark">
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <p-table [value]="students" [paginator]="true" [rows]="10" [responsive]="true" [rowsPerPageOptions]="[10, 20, 50]">
+  <ng-template pTemplate="header">
     <tr>
       <th>Name</th>
       <th>Email</th>
@@ -10,20 +12,22 @@
       <th>Active</th>
       <th>Actions</th>
     </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let student of students">
+  </ng-template>
+  <ng-template pTemplate="body" let-student>
+    <tr>
       <td>{{ student.name }}</td>
       <td>{{ student.email }}</td>
       <td>{{ student.registerationDate | date }}</td>
       <td>{{ student.Active ? 'Yes' : 'No' }}</td>
+
+
       <td>
-
-        <button *ngIf="student.Active" class="btn btn-danger" (click)="Block(student._id)">Block</button>
-        <button *ngIf="!student.Active" class="btn btn-primary" (click)="Active(student._id)">Active</button>
-        <button class="btn btn-danger mx-2" (click)="Delete(student._id)">Delete</button>
-
+        <button *ngIf="student.Active" pButton type="button" class="p-button-danger" (click)="Block(student._id)">Block</button>
+        <button *ngIf="!student.Active" pButton type="button" class="p-button-primary" (click)="Active(student._id)">Active</button>
+        <button pButton type="button" class="p-button-danger mx-2" (click)="Delete(student._id)">Delete</button>
       </td>
     </tr>
-  </tbody>
-</table>
+  </ng-template>
+</p-table>
+        </div>
+</div>

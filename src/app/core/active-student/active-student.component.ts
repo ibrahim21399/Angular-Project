@@ -23,6 +23,7 @@ export class ActiveStudentComponent implements OnInit {
         this.students = students;
         console.log(students);
       });
+
   }
 
 
