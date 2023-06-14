@@ -29,12 +29,16 @@ export class ActiveStudentComponent implements OnInit {
 
   Block(id:string):void{
 this.studentService.Block(id).subscribe(a=>{
+  this._sweetalertService.RunAlert("student Blocked Successfully",true);
   this.getAllActive();
 
 })
   }
   Active(id:string):void{
     this.studentService.Active(id).subscribe(a=>{
+
+      this._sweetalertService.RunAlert("Student Actived Successfully",true);
+
       this.getAllActive();
     })
 }

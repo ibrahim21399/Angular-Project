@@ -36,13 +36,6 @@ export class PendingTeachersComponent implements OnInit {
     })
 }
 
-Delete(id:string):void{
-  this.teacherService.DeleteTeacher(id).subscribe(a=>{
-    console.log(a);
-    this._sweetalertService.RunAlert(a.message,true);
 
-    this.getAllPending();
-  })
-}
 
 }

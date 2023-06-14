@@ -1,0 +1,57 @@
+.card {
+  max-width: 1500px;
+  margin: auto;
+}
+
+.message-container {
+  height: 500px;
+  overflow-y: auto;
+}
+
+.sent {
+  text-align: right;
+}
+
+.sent p {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.received p {
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.message-form {
+  margin-top: 20px;
+}
+
+.input-group-text {
+  background-color: #fff;
+  border-right: none;
+}
+
+.form-control {
+  border-color: #ced4da;
+}
+
+.btn-success {
+  border-color: #28a745;
+  background-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+img.rounded-circle {
+  width: 50px;
+  height: 50px;
+}

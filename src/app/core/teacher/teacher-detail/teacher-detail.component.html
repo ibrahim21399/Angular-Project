@@ -5,7 +5,7 @@
           <p class="text-center"><img src="https://cdn-icons-png.flaticon.com/512/236/236832.png?w=740&t=st=1686602676~exp=1686603276~hmac=bfac87bcbd677600994632eff482d6967a7aa40d4df636cb8282097f330cfbb6"
             class="card-img"/></p>      
       </div>
-      <div class="col-6 mx-3">
+      <div class="col-6 ">
         <div class="card-body">
           <h4 class="card-title mb-4">{{ teacher.name }}</h4>
           <p class="card-text mb-2">Email: {{ teacher.email }}</p>
@@ -23,10 +23,10 @@
 
         <div *ngIf="!IsRated && IsEnrollerd">
 <h5>Rate Your Teacher :</h5>
-<!-- <p-rating  [cancel]="false" [readonly]="false" "></p-rating> -->
+  <textarea [(ngModel)]="feedback" type="text" id="feedback" class="fadeIn second" name="username" placeholder="Feedback"></textarea>
+  <p-rating [(ngModel)]="selectedRating" [cancel]="false"></p-rating>
+  <button class="btn btn-success" (click)="rate()"> Submit Rate</button>
 
-
-<p-rating [(ngModel)]="selectedRating" (onRate)="rate($event)"[cancel]="false"></p-rating>
         </div>
         <div *ngIf="IsRated && IsEnrollerd">
           <p style="color: Red;">Thank You!</p>

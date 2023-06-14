@@ -11,11 +11,12 @@ import { HomeComponent } from './home/home.component';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { MapPickerComponentComponent } from './map-picker-component/map-picker-component.component';
-import { FieldComponent } from './field/field.component';
 import { ActiveStudentComponent } from './active-student/active-student.component';
 import { TeacherModule } from './teacher/teacher.module';
 import { RatingModule } from 'primeng/rating';
 import { TableModule } from 'primeng/table';
+import { MessageComponent } from './messages/messages.component';
+import { StudentprofileComponent } from './studentprofile/studentprofile.component';
 
 
 
@@ -29,8 +30,9 @@ import { TableModule } from 'primeng/table';
     NavbarComponent,
     HomeComponent,
     MapPickerComponentComponent,
-    FieldComponent,
     ActiveStudentComponent,
+    MessageComponent,
+    StudentprofileComponent
   ],
   imports: [
     CommonModule,
@@ -52,6 +54,7 @@ import { TableModule } from 'primeng/table';
     RegisterComponent,
     LoginComponent,
     NavbarComponent,
+    MessageComponent,
   ],
   providers:[]
 

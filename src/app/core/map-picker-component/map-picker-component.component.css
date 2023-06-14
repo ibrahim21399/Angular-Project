@@ -1,0 +1,54 @@
+.welcome img {
+    max-width: 100%;
+  }
+  
+  h1, h2, h3, h4, h5 {
+    font-family: cursive;
+  }
+  
+  .card-img-top {
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+  .rating {
+    font-size: 1.25rem;
+  }
+  
+  .btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0b5ed7;
+  }
+  
+  @media (min-width: 768px) {
+    .card-columns {
+      column-count: 2;
+    }
+  
+    .card {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .card-columns {
+      column-count: 3;
+    }
+  }

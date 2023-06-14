@@ -3,6 +3,7 @@ import { Teacher } from 'src/app/Model/Teacher';
 import { AuthService } from 'src/app/auth.service';
 import { TeacherService } from 'src/app/services/teacher.service';
 import * as L from 'leaflet';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-map-picker-component',
@@ -12,7 +13,8 @@ import * as L from 'leaflet';
 export class MapPickerComponentComponent implements OnInit {
 
   highestRatedTeachers: Teacher[] = [];
-  teachers: Teacher[] = [];
+  teachers: Teacher[]=[];
+  
   private userLatitude: number= 0 ;
   private userLongitude: number = 0 ;
   role:any;
@@ -33,7 +35,7 @@ export class MapPickerComponentComponent implements OnInit {
   public ratingArr = [];
 
   constructor(public auth:AuthService, private teacherService:TeacherService,
-      public login:AuthService) {
+      public login:AuthService,public router:Router) {
 
       if(localStorage.getItem("jwt_token")){
         this.login.isloggedin = true;
@@ -45,23 +47,23 @@ export class MapPickerComponentComponent implements OnInit {
       this.role=localStorage.getItem("Role");
       this.Id = localStorage.getItem("Id");
 
+
      }
 
   ngOnInit() {
-    this.getUserLocation();
-    this.role =localStorage.getItem('Role');
     this.getActivatedTeachers();
-     this.getTeachersWithHighstRate();
-     this.name = localStorage.getItem("name");
-     this.login.getname().subscribe(res=>{
-       this.name =res;
-     })
-       this.login.getIsLogin().subscribe(res=>{
-       this.islogin = res;
-
-
-     });
-
+    this.getTeachersWithHighstRate();
+    this.role =localStorage.getItem('Role');
+    this.name = localStorage.getItem("name");
+    this.login.getname().subscribe(res=>{
+      this.name =res;
+    })
+    this.login.getIsLogin().subscribe(res=>{
+      this.islogin = res;
+      
+      
+    });
+    
   }
 
   getUserLocation() {
@@ -94,11 +96,10 @@ export class MapPickerComponentComponent implements OnInit {
 
     // Place markers for nearby teachers
     this.teachers.forEach((teacher) => {
-      console.log(teacher);
       if(teacher.Latitude != undefined){
       L.marker([teacher.Latitude, teacher.Longitude])
         .addTo(this.map)
-        .bindPopup(`<strong>${teacher.name}</strong><br>Rating: ${teacher.averageRating}`);
+        .bindPopup(`<strong>${teacher.name}</strong><br>Rating: ${teacher.averageRating}/5`);
       }
     });
 
@@ -117,17 +118,19 @@ export class MapPickerComponentComponent implements OnInit {
   }
 
 
-  getActivatedTeachers() {
+  getActivatedTeachers(){
     this.teacherService.GetActiveTeachers()
       .subscribe(response => {
       if (response) {
+        console.log(response);
         this.teachers = response.data;
-
+        this.getUserLocation();
       }
     }, error => {
       console.log(error);
 
     });
+
   }
 
 

@@ -1,0 +1,25 @@
+
+<div class="container d-flex justify-content-center align-items-center py-5">
+    <div class="card p-4" >
+      <div class="row no-gutters">
+        <div class="col-4">
+            <p class="text-center"><img src="https://cdn-icons-png.flaticon.com/512/236/236832.png?w=740&t=st=1686602676~exp=1686603276~hmac=bfac87bcbd677600994632eff482d6967a7aa40d4df636cb8282097f330cfbb6"
+              class="card-img"/></p>      
+        </div>
+        <div class="col-6 ">
+          <div class="card-body">
+            <div class="p-col-12 p-md-8">
+                <p class="p-card-text"><i class="pi pi-name"></i> {{ std.name }}</p>
+              <p class="p-card-text"><i class="pi pi-envelope"></i> {{ std.email }}</p>
+              <p class="p-card-text"><i class="pi pi-calendar"></i> {{ std.registerationDate | date }}</p>
+              <p class="p-card-text"><i class="pi pi-check-circle"></i> {{ std.Active ? 'Active' : 'Inactive' }}</p>
+            </div>
+        </div>
+        </div>
+
+  
+        
+      </div>
+    </div>
+  </div>
+  

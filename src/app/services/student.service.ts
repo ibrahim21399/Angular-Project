@@ -25,11 +25,11 @@ export class StudentService {
   }
 
   Block(id:string): Observable<Student> {
-    return this.http.get<Student>(`${this._Block}${id}`);
+    return this.http.post<Student>(`${this._Block}${id}`,id);
   }
 
   Active(id:string): Observable<Student> {
-    return this.http.get<Student>(`${this._Active}${id}`);
+    return this.http.post<Student>(`${this._Active}${id}`,id);
   }
   Delete(id:string): Observable<ServiceResponse<boolean>> {
     return this.http.delete<ServiceResponse<boolean>>(`${this._students}${id}`);

@@ -14,6 +14,7 @@ import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { DatePipe } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
+import { TeacherFeedbackComponent } from './teacher-feedback/teacher-feedback.component';
 
 
 
@@ -23,6 +24,7 @@ import { TeacherProfileComponent } from './teacher-profile/teacher-profile.compo
     PendingTeachersComponent,
     TeacherListComponent,
     TeacherProfileComponent,
+    TeacherFeedbackComponent,
   ],
   imports: [
     CommonModule,

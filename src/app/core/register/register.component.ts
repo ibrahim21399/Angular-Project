@@ -32,7 +32,7 @@ this.form = this.fb.group( {
   name:["",Validators.required],
   password:"",
   email:"",
-  Phone:"",
+  phone:"",
   pricePerHour:"",
   field:"",
   experienceYears:"",
@@ -62,7 +62,7 @@ submit(){
 
     this.http.post(this.url+"teachers",this.form.getRawValue())
     .subscribe(res=>{
-
+      
 
       this.router.navigateByUrl("/login")
 

@@ -20,11 +20,12 @@ export class TeacherDetailComponent implements OnInit {
   starWidth: number = 0;
   IsRated:boolean=false;
   studentname:any;
-
+  selectedRating: number=0;
+  feedback:string="";
 
   @Output() ratingSubmitted = new EventEmitter<number>();
 
-  selectedRating: number=0;
+
   constructor(private teacherService:TeacherService,  private activateRoute:ActivatedRoute,private authService:AuthService,
     private _sweetalertService: SweetalertService,private router: Router) {
       this.loadTeacherDetails();
@@ -73,17 +74,18 @@ export class TeacherDetailComponent implements OnInit {
     });
       }
   SendMessage(): void {
-    this.router.navigate(['/messages', this.StudentId, this.TeacherId]);
+    this.router.navigate(['/Contact', this.StudentId, this.TeacherId]);
   }
 
 
 
 
 
-  rate(event: any) {
-    this.selectedRating = event.value;
+  rate() {
+    this.selectedRating;
+    this.feedback;
 
-    this.teacherService.rate(this.TeacherId,this.selectedRating).subscribe(a=>{this.IsRated=true;
+    this.teacherService.rate(this.TeacherId,this.selectedRating,this.feedback,this.StudentId).subscribe(a=>{this.IsRated=true;
       this.loadTeacherDetails();
     })
 

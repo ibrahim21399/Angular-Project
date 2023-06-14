@@ -1,0 +1,28 @@
+
+<div class="container d-flex justify-content-center align-items-center py-5">
+    <div class="card p-4" >
+      <div class="row no-gutters">
+        <h5 class="p-card-title text-warning">Students Feedback & Rates</h5>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let item of rate">
+            <div class="d-flex align-items-center">
+              <div class="mr-2">
+                <h6 class="mb-0">{{ item.studentId.name }}</h6>
+                <small class="text-muted"><i class="pi pi-envelope"></i> {{ item.studentId.email }}</small>
+                <p class="text">{{ item.feedback }}</p>
+                <p class="p-card-text">
+                    <p-rating [(ngModel)]="item.rate" [disabled]="true" [cancel]="false"></p-rating>
+                  </p>
+              </div>
+              <div class="">
+                <a class="btn btn-success btn-sm mx-5" href="Contact/{{ item.studentId._id }}/{{ TeacherId }}"><i class="pi pi-eye"></i> Contact Student</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+  
+        
+      </div>
+    </div>
+  </div>
+  

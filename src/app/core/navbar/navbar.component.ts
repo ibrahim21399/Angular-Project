@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
     }
     this.name = localStorage.getItem("name");
     this.role=localStorage.getItem("Role");
-    this.Id = localStorage.getItem("Id");
+    this.Id = localStorage.getItem("userId");
 
   }
 

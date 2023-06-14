@@ -7,11 +7,14 @@ import { LoginComponent } from './core/login/login.component';
 import { RegisterComponent } from './core/register/register.component';
 import { ErrorComponent } from './error/error.component';
 import { LoginGuard } from './login.guard';
-import { FieldComponent } from './core/field/field.component';
 import { ActiveStudentComponent } from './core/active-student/active-student.component';
 import { PendingTeachersComponent } from './core/teacher/pending-teachers/pending-teachers.component';
 import { TeacherListComponent } from './core/teacher/teacher-list/teacher-list.component';
 import { TeacherDetailComponent } from './core/teacher/teacher-detail/teacher-detail.component';
+import { TeacherProfileComponent } from './core/teacher/teacher-profile/teacher-profile.component';
+import { MessageComponent } from './core/messages/messages.component';
+import { TeacherFeedbackComponent } from './core/teacher/teacher-feedback/teacher-feedback.component';
+import { StudentprofileComponent } from './core/studentprofile/studentprofile.component';
 
 
 
@@ -20,19 +23,16 @@ const routes: Routes = [
   {path:"register",component: RegisterComponent},
   {path:"admin",component:AdminDashboardComponent,canActivate:[LoginGuard]},
   {path:"error",component:ErrorComponent},
-  {path:"Fields",component: FieldComponent},
   {path:"students",component: ActiveStudentComponent},
   {path:"PendingTeachers",component: PendingTeachersComponent},
   {path:"TeachersList",component: TeacherListComponent},
-  // {path:"Admins",component: AdminComponent},
-
   {path: "teacherDetail/:id", component: TeacherDetailComponent},
-  // {path: "teacherProfile/:id", component: TeacherProfileComponent},
-  // { path: 'messages/:studentId/:teacherId', component: MessageComponent },
+  {path: "teacherProfile/:id", component: TeacherProfileComponent},
+  {path: "studentProfile/:id", component: StudentprofileComponent},
+  { path: 'Contact/:studentId/:teacherId', component: MessageComponent },
+  { path: 'feedbacks/:id', component: TeacherFeedbackComponent },
   {path:"error",component:ErrorComponent},
   {path:"",component:HomeComponent},
-
-// { path: '**', component: RegisterComponent }
 ];
 
 @NgModule({
